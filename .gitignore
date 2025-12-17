@@ -158,8 +158,9 @@ $RECYCLE.BIN/
 .Trash-*
 .nfs*
 
-# Bicep
-*.bicepparam
+# Bicep (exclude parameter files with secrets)
+# Note: Bicep parameter files (*.bicepparam) should generally be version controlled
+# Only ignore specific files containing secrets or environment-specific credentials
 
 # Terraform (if used)
 *.tfstate
