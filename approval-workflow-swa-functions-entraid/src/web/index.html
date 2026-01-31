@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Approval Workflow SWA</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f7f4ef;
+        --card: #ffffff;
+        --ink: #1f2933;
+        --accent: #ff7a3d;
+        --accent-2: #2f855a;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+        background: radial-gradient(circle at top, #fff7ec, #f2e9df 55%, #efe4d6 100%);
+        color: var(--ink);
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 32px 16px;
+      }
+
+      .card {
+        background: var(--card);
+        max-width: 720px;
+        width: 100%;
+        border-radius: 24px;
+        padding: 36px;
+        box-shadow: 0 20px 60px rgba(31, 41, 51, 0.15);
+        border: 1px solid rgba(31, 41, 51, 0.08);
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .badge {
+        background: var(--accent);
+        color: #fff;
+        border-radius: 999px;
+        padding: 6px 14px;
+        font-size: 0.8rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        font-size: clamp(2rem, 4vw, 2.7rem);
+        letter-spacing: -0.02em;
+      }
+
+      p {
+        margin: 0 0 18px;
+        line-height: 1.6;
+        font-size: 1.05rem;
+      }
+
+      ul {
+        margin: 0;
+        padding: 0 0 0 18px;
+        line-height: 1.8;
+      }
+
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 22px;
+      }
+
+      .pill {
+        background: #fff6ed;
+        color: #9c3b00;
+        border-radius: 999px;
+        padding: 8px 14px;
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      footer {
+        margin-top: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        font-size: 0.9rem;
+        color: #52606d;
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+      }
+
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--accent-2);
+        box-shadow: 0 0 10px rgba(47, 133, 90, 0.6);
+      }
+
+      @media (max-width: 640px) {
+        .card {
+          padding: 28px;
+        }
+
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        footer {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <header>
+        <div class="badge">Static Web App</div>
+        <div class="status">
+          <span class="dot" aria-hidden="true"></span>
+          CI/CD online
+        </div>
+      </header>
+
+      <h1>Approval Workflow: Frontend Check</h1>
+      <p>
+        If you can see this page, your Azure Static Web Apps deployment pipeline is
+        publishing the <strong>src/web</strong> build output correctly.
+      </p>
+
+      <ul>
+        <li>HTML, CSS, and assets are served from the SWA site.</li>
+        <li>The API functions can be wired in once the pipeline is verified.</li>
+        <li>Use this page to confirm every environment is up and running.</li>
+      </ul>
+
+      <div class="pill-row">
+        <span class="pill">Build: sample site</span>
+        <span class="pill">Repo: approval-workflow</span>
+        <span class="pill">Status: deployed</span>
+      </div>
+
+      <footer>
+        <span>Next: connect to your Functions API.</span>
+        <span>Timestamp: <span id="timestamp">loading...</span></span>
+      </footer>
+    </main>
+
+    <script>
+      const now = new Date();
+      document.getElementById("timestamp").textContent = now.toLocaleString();
+    </script>
+  </body>
+</html>
